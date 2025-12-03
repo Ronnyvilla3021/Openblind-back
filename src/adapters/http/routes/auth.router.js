@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { body } = require('express-validator');
 const { register, login, logout, getProfile } = require('../controller/auth.controller');
-const isLoggedIn = require('../lib/auth');
+const isLoggedIn = require('../../middleware/auth');
 
 // Validaciones
 const registerValidation = [

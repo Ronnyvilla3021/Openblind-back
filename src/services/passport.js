@@ -9,7 +9,7 @@ const { cifrarDatos, descifrarDatos } = require('./encrypDates');
 //archvios de coneccion
 const orm = require('../Database/dataBase.orm');
 const sql = require('../Database/dataBase.sql');
-const mongo = require('../Database/dataBaseMongose')
+const mongo = require('../infrastructure/database/mongodb/dataBaseMongose')
 
 const descifrarSeguro = (dato) => {
     try {

@@ -22,7 +22,7 @@ const cors = require('cors');
 
 // Importar módulos locales
 const { MYSQLHOST, MYSQLUSER, MYSQLPASSWORD, MYSQLDATABASE, MYSQLPORT } = require('./keys');
-require('./lib/passport');
+require('../services/passport');
 
 // Crear aplicación Express
 const app = express();
@@ -248,25 +248,25 @@ app.use((req, res, next) => {
 
 // ==================== RUTAS API ====================
 // Importar y configurar rutas como API
-app.use(require('./router/index'))
-app.use('/pagina', require('./router/pagina.router'))
-app.use('/auth', require('./router/auth.router'));
-app.use('/conductor', require('./router/conductor.router'));
-app.use('/horario', require('./router/horario.router'));
-app.use('/empresas', require('./router/empresa.router'));
-app.use('/transporte', require('./router/transporte.router'));
-app.use('/ruta', require('./router/ruta.router'));
-app.use('/calificacion', require('./router/calificacion.router'));
-app.use('/categoria', require('./router/categoria.router'));
-app.use('/estacion', require('./router/estacion.router'));
-app.use('/tarifas', require('./router/tarifas.router'));
-app.use('/lugares', require('./router/lugarTuristico.router'));
-app.use('/mensajes', require('./router/mensaje.router'));
-app.use('/guia-voz', require('./router/guiaVoz.router'));
-app.use('/reporte', require('./router/reporte.router'));
-app.use('/usuarios', require('./router/user.router'));
-app.use('/roles', require('./router/rol.router'));
-app.use('/detalle-rol', require('./router/detalleRol.router'));
+app.use(require('../adapters/http/router/index'))
+app.use('/pagina', require('../adapters/http/router/pagina.router'))
+app.use('/auth', require('../adapters/http/router/auth.router'));
+app.use('/conductor', require('../adapters/http/router/conductor.router'));
+app.use('/horario', require('../adapters/http/router/horario.router'));
+app.use('/empresas', require('../adapters/http/router/empresa.router'));
+app.use('/transporte', require('../adapters/http/router/transporte.router'));
+app.use('/ruta', require('../adapters/http/router/ruta.router'));
+app.use('/calificacion', require('../adapters/http/router/calificacion.router'));
+app.use('/categoria', require('../adapters/http/router/categoria.router'));
+app.use('/estacion', require('../adapters/http/router/estacion.router'));
+app.use('/tarifas', require('../adapters/http/router/tarifas.router'));
+app.use('/lugares', require('../adapters/http/router/lugarTuristico.router'));
+app.use('/mensajes', require('../adapters/http/router/mensaje.router'));
+app.use('/guia-voz', require('../adapters/http/router/guiaVoz.router'));
+app.use('/reporte', require('../adapters/http/router/reporte.router'));
+app.use('/usuarios', require('../adapters/http/router/user.router'));
+app.use('/roles', require('../adapters/http/router/rol.router'));
+app.use('/detalle-rol', require('../adapters/http/router/detalleRol.router'));
 
 // Configurar variables globales
 app.use((req, res, next) => {

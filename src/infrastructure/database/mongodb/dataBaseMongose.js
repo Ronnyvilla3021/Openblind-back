@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { MONGODB_URI } = require('../keys');
+const { MONGODB_URI } = require('../../../config/keys');
 
 // 1. Configuración de eventos de conexión
 mongoose.connection.on('connected', () => {
@@ -49,16 +49,16 @@ process.on('SIGINT', async () => {
 connectDB();
 
 // 5. Exportar modelos (ajusta las rutas según tu estructura)
-const pageModel = require('../models/mongo/page');
-const calificacionModel = require('../models/mongo/calificacion');
-const clienteModel = require('../models/mongo/cliente');
-const conductorModel = require('../models/mongo/conductor');
-const estacionModel = require('../models/mongo/estacion');
-const guiaVozModel = require('../models/mongo/guiaVoz');
-const lugarTuristicoModel = require('../models/mongo/lugarTuristico');
-const mensajeModel = require('../models/mongo/mensaje');
-const rutaModel = require('../models/mongo/ruta');
-const transporteModel = require('../models/mongo/trasporte');
+const pageModel = require('./schemas/page');
+const calificacionModel = require('./schemas/calificacion');
+const clienteModel = require('./schemas/cliente');
+const conductorModel = require('./schemas/conductor');
+const estacionModel = require('./schemas/estacion');
+const guiaVozModel = require('./schemas/guiaVoz');
+const lugarTuristicoModel = require('./schemas/lugarTuristico');
+const mensajeModel = require('./schemas/mensaje');
+const rutaModel = require('./schemas/ruta');
+const transporteModel = require('./schemas/trasporte');
 
 
 module.exports = {
