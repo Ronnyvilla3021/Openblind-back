@@ -1,6 +1,6 @@
 const empresaTransporteCtl = {};
-const sql = require('../Database/dataBase.sql');
-const { cifrarDatos, descifrarDatos } = require('../lib/encrypDates');
+const sql = require('../../infrastructure/database/mysql/dataBase.sql');
+const { cifrarDatos, descifrarDatos } = require('../../services/encrypDates');
 
 const descifrarSeguro = (dato) => {
     try {

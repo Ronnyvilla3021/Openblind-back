@@ -1,8 +1,8 @@
 const passport = require('passport');
-const orm = require('../Database/dataBase.orm');
-const sql = require('../Database/dataBase.sql');
+const orm = require('../../infrastructure/database/mysql/dataBase.orm');
+const sql = require('../../infrastructure/database/mysql/dataBase.sql');
 const { validationResult } = require('express-validator');
-const { cifrarDatos, descifrarDatos } = require('../lib/encrypDates');
+const { cifrarDatos, descifrarDatos } = require('../../services/encrypDates');
 const bcrypt = require('bcrypt');
 
 const authCtl = {};

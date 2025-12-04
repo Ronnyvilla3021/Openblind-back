@@ -7,7 +7,7 @@ const {
     actualizarTransporte, 
     eliminarTransporte,
     obtenerTransporte
-} = require('../controller/transporte.controller');
+} = require('../../../application/controller/transporte.controller');
 
 // Obtener todos los transportes
 router.get('/lista', mostrarTransportes);

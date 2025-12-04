@@ -40,7 +40,7 @@ const {
     buscarCategorias,
     obtenerEstadisticas,
     crearCategoriasPorDefecto
-} = require('../controller/categoria.controller');
+} = require('../../../application/controller/categoria.controller');
 
 // ================ RUTAS DE CATEGORÍAS DE TRANSPORTE ================
 // Obtener todas las categorías de transporte

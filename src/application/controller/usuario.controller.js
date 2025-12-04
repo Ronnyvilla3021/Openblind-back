@@ -1,7 +1,7 @@
 const usuarioCtl = {};
-const orm = require('../Database/dataBase.orm');
-const sql = require('../Database/dataBase.sql');
-const { cifrarDatos, descifrarDatos } = require('../lib/encrypDates');
+const orm = require('../../infrastructure/database/mysql/dataBase.orm');
+const sql = require('../../infrastructure/database/mysql/dataBase.sql');
+const { cifrarDatos, descifrarDatos } = require('../../services/encrypDates');
 const bcrypt = require('bcrypt');
 
 // Función para descifrar de forma segura

@@ -4,12 +4,13 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 const FormData = require('form-data');
+const bcrypt = require('bcrypt');
 const { cifrarDatos, descifrarDatos } = require('./encrypDates');
 
-//archvios de coneccion
-const orm = require('../Database/dataBase.orm');
-const sql = require('../Database/dataBase.sql');
-const mongo = require('../infrastructure/database/mongodb/dataBaseMongose')
+// Archivos de conexión - RUTAS CORREGIDAS
+const orm = require('../infrastructure/database/mysql/dataBase.orm');
+const sql = require('../infrastructure/database/mysql/dataBase.sql');
+const mongo = require('../infrastructure/database/mongodb/dataBaseMongose');
 
 const descifrarSeguro = (dato) => {
     try {

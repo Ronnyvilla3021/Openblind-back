@@ -1,43 +1,40 @@
 const { Sequelize } = require("sequelize");
-const { MYSQLHOST, MYSQLUSER, MYSQLPASSWORD, MYSQLDATABASE, MYSQLPORT, MYSQL_URI } = require("../keys");
+const { MYSQLHOST, MYSQLUSER, MYSQLPASSWORD, MYSQLDATABASE, MYSQLPORT, MYSQL_URI } = require("../../../config/keys");
 
 let sequelize;
 
-// Usar URI de conexión si está disponible
 if (MYSQL_URI) {
     sequelize = new Sequelize(MYSQL_URI, {
         dialect: 'mysql',
         dialectOptions: {
-            charset: 'utf8mb4', // Soporte para caracteres especiales
+            charset: 'utf8mb4',
         },
         pool: {
-            max: 20, // Número máximo de conexiones
-            min: 5,  // Número mínimo de conexiones
-            acquire: 30000, // Tiempo máximo en ms para obtener una conexión
-            idle: 10000 // Tiempo máximo en ms que una conexión puede estar inactiva
+            max: 20,
+            min: 5,
+            acquire: 30000,
+            idle: 10000
         },
-        logging: false // Desactiva el logging para mejorar el rendimiento
+        logging: false
     });
 } else {
-    // Configuración para parámetros individuales
     sequelize = new Sequelize(MYSQLDATABASE, MYSQLUSER, MYSQLPASSWORD, {
         host: MYSQLHOST,
         port: MYSQLPORT,
         dialect: 'mysql',
         dialectOptions: {
-            charset: 'utf8mb4', // Soporte para caracteres especiales
+            charset: 'utf8mb4',
         },
         pool: {
-            max: 20, // Número máximo de conexiones
-            min: 5,  // Número mínimo de conexiones
-            acquire: 30000, // Tiempo máximo en ms para obtener una conexión
-            idle: 10000 // Tiempo máximo en ms que una conexión puede estar inactiva
+            max: 20,
+            min: 5,
+            acquire: 30000,
+            idle: 10000
         },
-        logging: false // Desactiva el logging para mejorar el rendimiento
+        logging: false
     });
 }
 
-// Autenticar y sincronizar
 sequelize.authenticate()
     .then(() => {
         console.log("Conexión establecida con la base de datos");
@@ -46,7 +43,6 @@ sequelize.authenticate()
         console.error("No se pudo conectar a la base de datos:", err.message);
     });
 
-// Sincronización de la base de datos
 const syncOptions = process.env.NODE_ENV === 'development' ? { force: true } : { alter: true };
 
 sequelize.sync(syncOptions)
@@ -57,33 +53,33 @@ sequelize.sync(syncOptions)
         console.error('Error al sincronizar la Base de Datos:', error);
     });
 
-//extracionModelos
-const usuarioModel = require('../models/sql/usuario')
-const rolModel = require('../models/sql/rol')
-const detalleRolModel = require('../models/sql/detalleRol')
-const pageModel = require('../models/sql/page')
-const categoriaTransporteModel = require('../models/sql/categoriaTransporte');
-const transporteModel = require('../models/sql/transporte');
-const empresaTransporteModel = require('../models/sql/empresaTransporte');
-const conductorModel = require('../models/sql/conductor');
-const estacionModel = require('../models/sql/estacion');
-const categoriaEstacionModel = require('../models/sql/categoriaEstacion');
-const rutaModel = require('../models/sql/ruta');
-const rutaEstacionModel = require('../models/sql/rutaEstacion');
-const horarioModel = require('../models/sql/horario');
-const metodoIngresoModel = require('../models/sql/metodoIngreso');
-const estacionMetodoModel = require('../models/sql/estacionMetodo');
-const categoriaLugarModel = require('../models/sql/categoriaLugar');
-const lugarTuristicoModel = require('../models/sql/lugarTuristico');
-const tipoMensajeModel = require('../models/sql/tipoMensaje');
-const mensajeModel = require('../models/sql/mensaje');
-const guiaVozModel = require('../models/sql/guiaVoz');
-const idiomaModel = require('../models/sql/idioma');
-const calificacionModel = require('../models/sql/calificacion');
-const tarifaModel = require('../models/sql/tarifa');
-const clienteModel = require('../models/sql/cliente');
+// Extracción de modelos - RUTAS CORREGIDAS
+const usuarioModel = require('./models/usuario')
+const rolModel = require('./models/rol')
+const detalleRolModel = require('./models/detalleRol')
+const pageModel = require('./models/page')
+const categoriaTransporteModel = require('./models/categoriaTransporte');
+const transporteModel = require('./models/transporte');
+const empresaTransporteModel = require('./models/empresaTransporte');
+const conductorModel = require('./models/conductor');
+const estacionModel = require('./models/estacion');
+const categoriaEstacionModel = require('./models/categoriaEstacion');
+const rutaModel = require('./models/ruta');
+const rutaEstacionModel = require('./models/rutaEstacion');
+const horarioModel = require('./models/horario');
+const metodoIngresoModel = require('./models/metodoIngreso');
+const estacionMetodoModel = require('./models/estacionMetodo');
+const categoriaLugarModel = require('./models/categoriaLugar');
+const lugarTuristicoModel = require('./models/lugarTuristico');
+const tipoMensajeModel = require('./models/tipoMensaje');
+const mensajeModel = require('./models/mensaje');
+const guiaVozModel = require('./models/guiaVoz');
+const idiomaModel = require('./models/idioma');
+const calificacionModel = require('./models/calificacion');
+const tarifaModel = require('./models/tarifa');
+const clienteModel = require('./models/cliente');
 
-//intaciar los modelos a sincronizar
+// Instanciar los modelos a sincronizar
 const usuario = usuarioModel(sequelize, Sequelize)
 const rol = rolModel(sequelize, Sequelize)
 const detalleRol = detalleRolModel(sequelize, Sequelize)
@@ -109,8 +105,7 @@ const calificacion = calificacionModel(sequelize, Sequelize);
 const tarifa = tarifaModel(sequelize, Sequelize);
 const cliente = clienteModel(sequelize, Sequelize);
 
-//relaciones o foreingKeys
-
+// Relaciones o ForeignKeys
 usuario.hasMany(detalleRol)
 detalleRol.belongsTo(usuario)
 
@@ -217,47 +212,35 @@ lugarTuristico.hasMany(tarifa);
 tarifa.belongsTo(lugarTuristico);
 
 // RELACIONES ADICIONALES
-usuario.hasMany(lugarTuristico); // Usuario que registra el lugar
+usuario.hasMany(lugarTuristico);
 lugarTuristico.belongsTo(usuario);
 
-usuario.hasMany(conductor); // Usuario que registra el conductor
+usuario.hasMany(conductor);
 conductor.belongsTo(usuario);
 
-// Exportar el objeto sequelize
 module.exports = {
   usuario,
   rol,
   detalleRol,
   page,
-  // Modelos de transporte
-    categoriaTransporte,
-    transporte,
-    empresaTransporte,
-    conductor,
-    
-    // Modelos de estaciones
-    estacion,
-    categoriaEstacion,
-    metodoIngreso,
-    estacionMetodo,
-    
-    // Modelos de rutas
-    ruta,
-    rutaEstacion,
-    horario,
-    
-    // Modelos de lugares
-    categoriaLugar,
-    lugarTuristico,
-    
-    // Modelos de comunicación
-    tipoMensaje,
-    mensaje,
-    guiaVoz,
-    idioma,
-    
-    // Modelos de evaluación
-    calificacion,
-    tarifa,
-    cliente,
+  categoriaTransporte,
+  transporte,
+  empresaTransporte,
+  conductor,
+  estacion,
+  categoriaEstacion,
+  metodoIngreso,
+  estacionMetodo,
+  ruta,
+  rutaEstacion,
+  horario,
+  categoriaLugar,
+  lugarTuristico,
+  tipoMensaje,
+  mensaje,
+  guiaVoz,
+  idioma,
+  calificacion,
+  tarifa,
+  cliente,
 };

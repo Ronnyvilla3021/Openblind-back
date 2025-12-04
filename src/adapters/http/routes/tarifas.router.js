@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { obtenerPorRuta, crearTarifa, actualizarTarifa, eliminarTarifa } = require('../controller/tarifa.controller');
+const { obtenerPorRuta, crearTarifa, actualizarTarifa, eliminarTarifa } = require('../../../application/controller/tarifa.controller');
 
 router.get('/ruta/:rutaId', obtenerPorRuta); // Obtener todas las tarifas
 router.post('/crear', crearTarifa);

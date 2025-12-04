@@ -8,7 +8,7 @@ const {
     eliminarEstacion,
     obtenerEstacion,
     buscarPorUbicacion
-} = require('../controller/estacion.controller');
+} = require('../../../application/controller/estacion.controller');
 
 // Obtener todas las estaciones
 router.get('/lista', mostrarEstaciones);

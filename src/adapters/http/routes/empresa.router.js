@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { mostrarEmpresas, eliminarEmpresa, actualizarEmpresa, crearEmpresa } = require('../controller/empresaTransporte.controller');
+const { mostrarEmpresas, eliminarEmpresa, actualizarEmpresa, crearEmpresa } = require('../../../application/controller/empresaTransporte.controller');
 
 router.get('/lista', mostrarEmpresas); // Obtener todas las empresas
 router.post('/crear', crearEmpresa); // Crear nueva empresa

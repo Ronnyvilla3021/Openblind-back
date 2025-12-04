@@ -12,7 +12,7 @@ const {
     registrarReproduccion,
     registrarDescarga,
     buscarPorCategoria
-} = require('../controller/guiaVoz.controller');
+} = require('../../../application/controller/guiaVoz.controller');
 
 // Obtener todas las guías de voz
 router.get('/lista', mostrarGuias);

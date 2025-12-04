@@ -11,7 +11,7 @@ const {
     marcarComoVisto,
     marcarComoLeido,
     obtenerMensajesUrgentes
-} = require('../controller/mensaje.controller');
+} = require('../../../application/controller/mensaje.controller');
 
 // Obtener todos los mensajes
 router.get('/lista', mostrarMensajes);

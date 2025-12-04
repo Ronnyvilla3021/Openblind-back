@@ -4,7 +4,8 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const { MYSQLHOST, MYSQLUSER, MYSQLPASSWORD, MYSQLDATABASE, MYSQLPORT } = require("../keys");
+// RUTA CORREGIDA
+const { MYSQLHOST, MYSQLUSER, MYSQLPASSWORD, MYSQLDATABASE, MYSQLPORT } = require("../../../config/keys");
 
 // Crear el pool de conexión a la base de datos
 const pool = createPool({

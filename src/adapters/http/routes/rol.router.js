@@ -12,7 +12,7 @@ const {
     cambiarEstado,
     obtenerEstadisticas,
     crearRolesPorDefecto
-} = require('../controller/rol.controller');
+} = require('../../../application/controller/rol.controller');
 
 // Middleware de autenticación (opcional, descomenta si lo necesitas)
 // const isLoggedIn = require('../lib/auth');

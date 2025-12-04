@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const{ obtenerPorRuta, crearHorario, actualizarHorario, eliminarHorario } = require('../controller/horario.controller');
+const{ obtenerPorRuta, crearHorario, actualizarHorario, eliminarHorario } = require('../../../application/controller/horario.controller');
 
 router.get('/lista/:rutaId', obtenerPorRuta); // Obtener horarios por ruta
 router.post('/crear', crearHorario); // Crear nuevo horario

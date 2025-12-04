@@ -10,7 +10,7 @@ const {
     buscarPorCategoria,
     buscarPorUbicacion,
     agregarResena
-} = require('../controller/lugarTuristico.controller');
+} = require('../../../application/controller/lugarTuristico.controller');
 
 // Obtener todos los lugares turísticos
 router.get('/lista', mostrarLugares);

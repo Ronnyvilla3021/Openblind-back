@@ -248,25 +248,26 @@ app.use((req, res, next) => {
 
 // ==================== RUTAS API ====================
 // Importar y configurar rutas como API
-app.use(require('../adapters/http/router/index'))
-app.use('/pagina', require('../adapters/http/router/pagina.router'))
-app.use('/auth', require('../adapters/http/router/auth.router'));
-app.use('/conductor', require('../adapters/http/router/conductor.router'));
-app.use('/horario', require('../adapters/http/router/horario.router'));
-app.use('/empresas', require('../adapters/http/router/empresa.router'));
-app.use('/transporte', require('../adapters/http/router/transporte.router'));
-app.use('/ruta', require('../adapters/http/router/ruta.router'));
-app.use('/calificacion', require('../adapters/http/router/calificacion.router'));
-app.use('/categoria', require('../adapters/http/router/categoria.router'));
-app.use('/estacion', require('../adapters/http/router/estacion.router'));
-app.use('/tarifas', require('../adapters/http/router/tarifas.router'));
-app.use('/lugares', require('../adapters/http/router/lugarTuristico.router'));
-app.use('/mensajes', require('../adapters/http/router/mensaje.router'));
-app.use('/guia-voz', require('../adapters/http/router/guiaVoz.router'));
-app.use('/reporte', require('../adapters/http/router/reporte.router'));
-app.use('/usuarios', require('../adapters/http/router/user.router'));
-app.use('/roles', require('../adapters/http/router/rol.router'));
-app.use('/detalle-rol', require('../adapters/http/router/detalleRol.router'));
+app.use(require('../adapters/http/routes/index'))
+app.use('/pagina', require('../adapters/http/routes/pagina.router'))
+app.use('/auth', require('../adapters/http/routes/auth.router'));
+app.use('/conductor', require('../adapters/http/routes/conductor.router'));
+app.use('/horario', require('../adapters/http/routes/horario.router'));
+app.use('/empresas', require('../adapters/http/routes/empresa.router'));
+app.use('/transporte', require('../adapters/http/routes/transporte.router'));
+app.use('/ruta', require('../adapters/http/routes/ruta.router'));
+app.use('/calificacion', require('../adapters/http/routes/calificacion.router'));
+app.use('/categoria', require('../adapters/http/routes/categoria.router'));
+app.use('/estacion', require('../adapters/http/routes/estacion.router'));
+app.use('/tarifas', require('../adapters/http/routes/tarifas.router'));
+app.use('/lugares', require('../adapters/http/routes/lugarTuristico.router'));
+app.use('/mensajes', require('../adapters/http/routes/mensaje.router'));
+app.use('/guia-voz', require('../adapters/http/routes/guiaVoz.router'));
+app.use('/reporte', require('../adapters/http/routes/reporte.router'));
+app.use('/usuarios', require('../adapters/http/routes/user.router'));
+app.use('/roles', require('../adapters/http/routes/rol.router'));
+app.use('/detalle-rol', require('../adapters/http/routes/detalleRol.router'));
+app.use('/cliente', require('../adapters/http/routes/cliente.router'));
 
 // Configurar variables globales
 app.use((req, res, next) => {

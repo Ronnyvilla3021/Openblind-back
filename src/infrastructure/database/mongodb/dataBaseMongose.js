@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { MONGODB_URI } = require('../../../config/keys');
+const { MONGODB_URI } = require('../../../config/keys');// RUTA CORREGIDA
 
 // 1. Configuración de eventos de conexión
 mongoose.connection.on('connected', () => {
@@ -45,10 +45,10 @@ process.on('SIGINT', async () => {
   }
 });
 
-// 4. Iniciar conexión inmediatamente (como solicitaste)
+// 4. Iniciar conexión inmediatamente
 connectDB();
 
-// 5. Exportar modelos (ajusta las rutas según tu estructura)
+// 5. Exportar modelos
 const pageModel = require('./schemas/page');
 const calificacionModel = require('./schemas/calificacion');
 const clienteModel = require('./schemas/cliente');

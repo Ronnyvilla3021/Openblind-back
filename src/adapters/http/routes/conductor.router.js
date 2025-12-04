@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const { mostrarConductores, crearConductor, actualizarConductor, eliminarConductor } = require('../controller/conductor.controller');
+const { 
+    mostrarConductores, 
+    crearConductor, 
+    actualizarConductor, 
+    eliminarConductor 
+} = require('../../../application/controller/conductor.controller');
 
 router.get('/lista', mostrarConductores);
 router.post('/crear', crearConductor);

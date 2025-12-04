@@ -13,7 +13,7 @@ const {
     removerRol,
     cambiarEstado,
     obtenerEstadisticas
-} = require('../controller/usuario.controller');
+} = require('../../../application/controller/usuario.controller');
 
 // Middleware de autenticación (opcional, descomenta si lo necesitas)
 // const isLoggedIn = require('../lib/auth');

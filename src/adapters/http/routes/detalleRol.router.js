@@ -12,7 +12,7 @@ const {
     removerRolMultiplesUsuarios,
     obtenerEstadisticas,
     validarRelacion
-} = require('../controller/detalleRol.controller');
+} = require('../../../application/controller/detalleRol.controller');
 
 // Middleware de autenticación (opcional, descomenta si lo necesitas)
 // const isLoggedIn = require('../lib/auth');
