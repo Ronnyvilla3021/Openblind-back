@@ -5,9 +5,9 @@ const transporteSchema = new mongoose.Schema({
         aireAcondicionado: Boolean,
         wifi: Boolean,
         accesibilidad: Boolean,
-        capacidadEspecial: Boolean
+        capacidadEspecial: Boolean     
     },
-    mantenimientoTransporte: [{
+    mantenimientoTransporte: [{     
         fecha: Date,
         tipo: String,
         descripcion: String,
