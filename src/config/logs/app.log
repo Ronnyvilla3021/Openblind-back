@@ -28,3 +28,8 @@
 2025-12-03 22:30:52 [INFO]: 🚀 MongoDB conectado correctamente
 2025-12-03 22:30:53 [INFO]: Conexión establecida con la base de datos
 2025-12-03 22:31:14 [ERROR]: Error al sincronizar la Base de Datos: SequelizeDatabaseError: Identifier name 'transportes_categoriasTransporteIdCategoriaTransporte_foreign_idx' is too long
+2025-12-04 18:35:13 [INFO]: El servidor está escuchando en el puerto 8888
+2025-12-04 18:35:14 [INFO]: Base de datos conectada
+2025-12-04 18:35:14 [INFO]: ✅ Mongoose conectado a MongoDB en: 31.97.42.126
+2025-12-04 18:35:14 [INFO]: 🚀 MongoDB conectado correctamente
+2025-12-04 18:35:15 [INFO]: Conexión establecida con la base de datos

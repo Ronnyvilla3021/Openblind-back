@@ -16,15 +16,15 @@ if (MYSQL_URI) {
             idle: 10000
         },
         logging: false
-    });
+    });   
 } else {
-    sequelize = new Sequelize(MYSQLDATABASE, MYSQLUSER, MYSQLPASSWORD, {
+    sequelize = new Sequelize(MYSQLDATABASE, MYSQLUSER, MYSQLPASSWORD, {   
         host: MYSQLHOST,
         port: MYSQLPORT,
-        dialect: 'mysql',
+        dialect: 'mysql',    
         dialectOptions: {
             charset: 'utf8mb4',
-        },
+        },   
         pool: {
             max: 20,
             min: 5,
